@@ -8,8 +8,6 @@ const Event = require("./models/event");
 
 const app = express();
 
-const events = [];
-
 const schema = buildSchema(`
 type Event {
     _id: ID!
@@ -48,7 +46,16 @@ app.use(
     schema,
     rootValue: {
       events: () => {
-        return events;
+        return Event
+          .find()
+          .then((events) => {
+            return events.map(event => {
+              return { ...event._doc };
+            });
+          })
+          .catch((err) => {
+            throw err;
+          });
       },
       createEvent: (args) => {
         const event = new Event({
