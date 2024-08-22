@@ -1,6 +1,7 @@
 {
   "env": {
     "MONGO_USER": "sophuskruhoffer",
-    "MONGO_PASSWORD": "9QS8qXNKuS2MpUIw"
+    "MONGO_PASSWORD": "9QS8qXNKuS2MpUIw",
+    "MONGO_DB": "cluster0"
   }
 }
